@@ -13,6 +13,9 @@ export default async function Home() {
   return (
     <HydrateClient>
       <MaxWidthWrapper className='mb-12 mt-28 sm:mt-40 flex flex-col items-center justify-center text-center'>
+
+        <div className="flex justify-center items-center gap-10">
+      <div>
         <div className='mx-auto mb-4 flex max-w-fit items-center justify-center space-x-2 overflow-hidden rounded-full border border-gray-200 bg-white px-7 py-2 shadow-md backdrop-blur transition-all hover:border-gray-300 hover:bg-white/50'>
           <p className='text-sm font-semibold text-gray-700'>
           Ruill الآن مفتوح للجمهور!
@@ -20,7 +23,7 @@ export default async function Home() {
         </div>
         <h1 className='max-w-4xl text-5xl font-bold md:text-6xl lg:text-7xl'>
           يمكنك ادارة مشاريعك وفريق العمل{' '}
-          <span className='text-blue-600'>في مكان واحد.</span>{' '}
+          <span className='from-[#87A2FF] to-[#6439FF] break-all'>في مكان واحد.</span>{' '}
         </h1>
         <p className='mt-5 max-w-prose text-zinc-700 sm:text-lg'>
           يمكن لمدير المشروع بدء التسجيل واضافة فريق العمل
@@ -36,6 +39,23 @@ export default async function Home() {
           <ArrowLeft className='mr-2 h-5 w-5' />
           ابدأ{' '}
         </Link>
+        </div>
+        <div className='mx-auto max-w-6xl px-6 lg:px-8 hidden md:block'>
+              <div className='mt-16 flow-root sm:mt-24'>
+                <div className='-m-2 rounded-xl bg-gray-900/5 p-2 ring-1 ring-inset ring-gray-900/10 lg:-m-4 lg:rounded-2xl lg:p-4'>
+                  <Image
+                    src='/logo.gif'
+                    alt='product preview'
+                    width={1364}
+                    height={866}
+                    quality={100}
+                    className='rounded-md bg-white p-2 sm:p-8 md:p-20 shadow-2xl ring-1 ring-gray-900/10'
+                  />
+                </div>
+              </div>
+            </div>
+        </div>
+
       </MaxWidthWrapper>
 
       {/* value proposition section */}
@@ -54,11 +74,11 @@ export default async function Home() {
           </div>
 
           <div>
-            <div className='mx-auto max-w-6xl px-6 lg:px-8'>
+            <div className='mx-auto max-w-6xl px-6 lg:px-8 md:hidden'>
               <div className='mt-16 flow-root sm:mt-24'>
                 <div className='-m-2 rounded-xl bg-gray-900/5 p-2 ring-1 ring-inset ring-gray-900/10 lg:-m-4 lg:rounded-2xl lg:p-4'>
                   <Image
-                    src='/dashboard-preview.jpg'
+                    src='/logo.gif'
                     alt='product preview'
                     width={1364}
                     height={866}
