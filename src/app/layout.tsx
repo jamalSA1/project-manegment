@@ -1,6 +1,6 @@
 import "~/styles/globals.css";
 
-import { GeistSans } from "geist/font/sans";
+import {Cairo, Zain, IBM_Plex_Sans_Arabic, Noto_Kufi_Arabic } from "next/font/google";
 import { type Metadata } from "next";
 
 import { TRPCReactProvider } from "~/trpc/react";
@@ -11,11 +11,17 @@ export const metadata: Metadata = {
   icons: [{ rel: "icon", url: "/favicon.ico" }],
 };
 
+const cairoClassName = Noto_Kufi_Arabic({
+  weight: ['400', '700'],
+  subsets: ['arabic']
+});
+
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
+
   return (
-    <html lang="en" className={`${GeistSans.variable}`}>
+    <html lang="en" className={`${cairoClassName.className}`}>
       <body>
         <TRPCReactProvider>{children}</TRPCReactProvider>
       </body>
