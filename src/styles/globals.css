@@ -64,3 +64,11 @@
     @apply bg-background text-foreground;
   }
 }
+
+.accountBody {
+  background-image: url('/accountBG.png');
+  background-size: cover; 
+  background-position: center; 
+  background-repeat: no-repeat;
+  height: 66vh;
+}

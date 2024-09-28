@@ -11,7 +11,7 @@ export default function Navbar() {
         <div className='flex justify-between items-center gap-6'>
           <p className="">التسعير</p>
           <div className="h-6 w-0.5 bg-gray-200"></div>
-          <Link className="" href='/account'>تسجيل</Link>
+          <Link className="" href='/account'>الحساب</Link>
         </div>
       </div>
     </MaxWidthWrapper>
