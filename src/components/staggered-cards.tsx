@@ -62,7 +62,7 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
+    <div className="min-h-screen flex items-center justify-center">
       <div
         className="relative w-64 h-96 overflow-hidden"
         onTouchStart={handleTouchStart}
@@ -73,10 +73,11 @@ export default function Home() {
           <div
             key={index}
             className={`absolute top-0 left-0 w-full h-full rounded-lg p-4 transform ${
-              activeIndex === index ? 'z-0 -rotate-6' : 'z-10 -rotate-3'
+              activeIndex === index ? 'z-10 -rotate-6' : 'z-0 -rotate-3'
             } ${card.bgColor}`}
             style={{
-              transform: `translateX(${(index - activeIndex) * 100}%)`,
+              transform: activeIndex === index ? 'none' : 'rotate(-10deg)', // إضافة الميل للبطاقات غير النشطة
+              clipPath: activeIndex === index ? 'none' : 'polygon(0 0, 100% 0, 100% 100%, 0 100%)', // الشكل الحالي
             }}
           >
 
