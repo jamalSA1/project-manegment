@@ -8,19 +8,14 @@ export default function Home() {
   // بيانات البطاقات
   const cards = [
     {
-      emoji: "😊",
+      image: '/man1',
       text: "It's a Happy Day!",
       bgColor: "bg-blue-400",
     },
     {
-      emoji: "✌️",
+      image: '/man2',
       text: "Peace & Love",
       bgColor: "bg-pink-400",
-    },
-    {
-      emoji: "🌻",
-      text: "Stay Positive!",
-      bgColor: "bg-orange-400",
     },
   ];
 
@@ -77,19 +72,28 @@ export default function Home() {
         {cards.map((card, index) => (
           <div
             key={index}
-            className={`absolute top-0 left-0 w-full h-full rounded-lg p-4 flex items-center justify-center transform transition-all duration-500 ${
-              activeIndex === index ? 'z-20' : 'z-10'
+            className={`absolute top-0 left-0 w-full h-full rounded-lg p-4 transform ${
+              activeIndex === index ? 'z-0 -rotate-6' : 'z-10 -rotate-3'
             } ${card.bgColor}`}
             style={{
               transform: `translateX(${(index - activeIndex) * 100}%)`,
             }}
           >
+
             <div className="text-center">
-              <span className="text-6xl">{card.emoji}</span>
+              <span className="text-6xl">{card.image}</span>
               <p className="mt-4 text-white text-lg">{card.text}</p>
             </div>
           </div>
         ))}
+
+{/* <div className="absolute top-0 left-0 w-full h-full bg-orange-400 rounded-lg p-4 transform -rotate-6 z-0">
+          <div className="text-center">
+            <span className="text-6xl">🌻</span>
+            <p className="mt-4 text-white text-lg">Stay Positive!</p>
+          </div>
+        </div> */}
+
       </div>
     </div>
   );
