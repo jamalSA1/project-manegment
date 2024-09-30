@@ -2,6 +2,8 @@ import "~/styles/globals.css";
 
 import {Cairo, Zain, IBM_Plex_Sans_Arabic, Noto_Kufi_Arabic } from "next/font/google";
 import { type Metadata } from "next";
+import { SpeedInsights } from "@vercel/speed-insights/next"
+import { Analytics } from "@vercel/analytics/react"
 
 import { TRPCReactProvider } from "~/trpc/react";
 
@@ -23,7 +25,11 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${cairoClassName.className}`}>
       <body>
-        <TRPCReactProvider>{children}</TRPCReactProvider>
+        <TRPCReactProvider>
+          {children}
+          </TRPCReactProvider>
+          <SpeedInsights />
+          <Analytics />
       </body>
     </html>
   );
