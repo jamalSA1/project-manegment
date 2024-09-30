@@ -1,6 +1,7 @@
 import React from 'react'
 import MaxWidthWrapper from './MaxWidthWrapper'
 import Link from 'next/link'
+import { SignInButton, SignedIn, SignedOut, UserButton } from '@clerk/nextjs'
 
 export default function Navbar() {
   return (
@@ -14,7 +15,14 @@ export default function Navbar() {
         <div className='flex justify-between items-center gap-6'>
           <p className="">التسعير</p>
           <div className="h-6 w-0.5 bg-gray-200"></div>
-          <Link className="" href='/account'>تسجيل</Link>
+          <div>
+          <SignedOut>
+              <SignInButton />
+            </SignedOut>
+            <SignedIn>
+              <UserButton />
+            </SignedIn>
+          </div>
         </div>
       </div>
     </MaxWidthWrapper>

@@ -4,6 +4,7 @@ import {Cairo, Zain, IBM_Plex_Sans_Arabic, Noto_Kufi_Arabic } from "next/font/go
 import { type Metadata } from "next";
 import { SpeedInsights } from "@vercel/speed-insights/next"
 import { Analytics } from "@vercel/analytics/react"
+import { ClerkProvider} from '@clerk/nextjs'
 
 import { TRPCReactProvider } from "~/trpc/react";
 
@@ -23,6 +24,7 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
 
   return (
+    <ClerkProvider>
     <html lang="en" className={`${cairoClassName.className}`}>
       <body>
         <TRPCReactProvider>
@@ -32,5 +34,6 @@ export default function RootLayout({
           <Analytics />
       </body>
     </html>
+    </ClerkProvider>
   );
 }
