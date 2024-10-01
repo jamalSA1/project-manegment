@@ -1,18 +1,12 @@
 "use client"
-import React, { useState } from 'react'
+import React, { useEffect } from 'react'
 import MaxWidthWrapper from './MaxWidthWrapper'
 import Link from 'next/link'
 import { SignIn, SignInButton, SignedIn, SignedOut, UserButton, useUser } from '@clerk/nextjs'
 import { Button } from './ui/button'
 import { redirect, useRouter } from 'next/navigation'
 
-export default function Navbar() {
-  const {user, isLoaded, isSignedIn} = useUser()
-  const router = useRouter();
-
-  if (!isSignedIn || !user) {
-    router.push('/user-info') 
-  }
+export default function Navbar() { 
 
   return (
     <MaxWidthWrapper>
@@ -23,8 +17,8 @@ export default function Navbar() {
         </Link>
 
         <div className='flex justify-between items-center gap-6'>
-          <p className="">التسعير</p>
-          <div className="h-6 w-0.5 bg-gray-200"></div>
+          <Link href='/' className="">التسعير</Link>
+          <div className="h-6 w-0.5 bg-gray-200" />
           <div>
 
             <SignedOut>

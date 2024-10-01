@@ -19,6 +19,7 @@ import {
   TabsList,
   TabsTrigger,
 } from "~/components/ui/tabs"
+import {registrationFormForAdmin, registrationFormForEmployee} from '~/actions/registrationForm'
 
 export default function UserInfo() {
 
@@ -34,66 +35,64 @@ export default function UserInfo() {
         <Card>
           <CardHeader>
             <CardTitle className="text-center">تعبيت معلومات الشركة</CardTitle>
-            {/* <CardDescription className="text-center">
-              اكمل معلوماتك لتجربة افضل 
-            </CardDescription> */}
           </CardHeader>
+
+            <form action={registrationFormForAdmin}>
           <CardContent className="space-y-2">
             <div className="space-y-1">
               <Label htmlFor="companyName">اسم الشركة</Label>
-              <Input id="companyName" placeholder="تجارة المعادن" required style={{textAlign: 'end'}} />
+              <Input id="companyName" name="companyName" placeholder="تجارة المعادن" required style={{textAlign: 'end'}} />
             </div>
             <div className="space-y-1">
               <Label htmlFor="adminName">اسم المسؤل</Label>
-              <Input id="adminName" placeholder="محمد" style={{textAlign: 'end'}} required/>
+              <Input id="adminName" name="adminName" placeholder="محمد" style={{textAlign: 'end'}} required/>
             </div>
             <div className="space-y-1">
               <Label htmlFor="secretCode"> رمز مخصص </Label>
-              <Input id="secretCode" placeholder="123abc" style={{textAlign: 'end'}} required />
+              <Input id="secretCode" name="secretCode" placeholder="123abc" style={{textAlign: 'end'}} required />
             </div>
             <div className="space-y-1">
               <Label htmlFor="logo">شعار الشركة (اختياري) </Label>
               <Input id="logo" type="image" />
             </div>
+
           </CardContent>
           <CardFooter>
             <Button>حفظ البيانات</Button>
           </CardFooter>
+            </form>
+
         </Card>
       </TabsContent>
       <TabsContent value="employee">
       <Card>
           <CardHeader>
             <CardTitle className="text-center"> اضف معلومات الشركة </CardTitle>
-            {/* <CardDescription className="text-center">
-              قم باكمال التسجيل 
-            </CardDescription> */}
           </CardHeader>
+          <form action={registrationFormForEmployee}>
           <CardContent className="space-y-2">
             <div className="space-y-1">
               <Label htmlFor="companyName">اسم الشركة</Label>
-              <Input id="companyName" placeholder="تجارة المعادن" style={{textAlign: 'end'}} required />
+              <Input id="companyName" name="companyName" placeholder="تجارة المعادن" style={{textAlign: 'end'}} required />
             </div>
             <div className="space-y-1">
-              <Label htmlFor="adminName">اسم الموظف</Label>
-              <Input id="adminName" placeholder="احمد" style={{textAlign: 'end'}} required />
+              <Label htmlFor="employeeName">اسم الموظف</Label>
+              <Input id="employeeName" name="employeeName" placeholder="احمد" style={{textAlign: 'end'}} required />
             </div>
             <div className="space-y-1">
-              <Label htmlFor="adminName">مجال العمل</Label>
-              <Input id="adminName" placeholder="عمل حر" style={{textAlign: 'end'}} />
+              <Label htmlFor="fieldWork">مجال العمل</Label>
+              <Input id="fieldWork" name="fieldWork" placeholder="عمل حر" style={{textAlign: 'end'}} />
             </div>
             <div className="space-y-1">
-              <Label htmlFor="companyName"> رمز الشركة </Label>
-              <Input id="companyName" placeholder="123abc" style={{textAlign: 'end'}} required />
+              <Label htmlFor="code"> الرمز المخصص </Label>
+              <Input id="code" name="code" placeholder="123abc" style={{textAlign: 'end'}} required />
             </div>
-            {/* <div className="space-y-1">
-              <Label htmlFor="logo"> </Label>
-              <Input id="logo" type="image" />
-            </div> */}
           </CardContent>
           <CardFooter>
             <Button>حفظ البيانات</Button>
-          </CardFooter>
+          </CardFooter>            
+          </form>
+
         </Card>
       </TabsContent>
     </div>
