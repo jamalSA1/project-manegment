@@ -1,9 +1,19 @@
-import React from 'react'
+"use client"
+import React, { useState } from 'react'
 import MaxWidthWrapper from './MaxWidthWrapper'
 import Link from 'next/link'
-import { SignInButton, SignedIn, SignedOut, UserButton } from '@clerk/nextjs'
+import { SignIn, SignInButton, SignedIn, SignedOut, UserButton, useUser } from '@clerk/nextjs'
+import { Button } from './ui/button'
+import { redirect, useRouter } from 'next/navigation'
 
 export default function Navbar() {
+  const {user, isLoaded, isSignedIn} = useUser()
+  const router = useRouter();
+
+  if (!isSignedIn || !user) {
+    router.push('/user-info') 
+  }
+
   return (
     <MaxWidthWrapper>
       <div className="flex justify-between items-center bg-zinc-50/70 p-3 mt-3 rounded-2xl sticky shadow-sm border border-gray-200">
@@ -16,12 +26,16 @@ export default function Navbar() {
           <p className="">التسعير</p>
           <div className="h-6 w-0.5 bg-gray-200"></div>
           <div>
-          <SignedOut>
-              <SignInButton />
+
+            <SignedOut>
+              <SignInButton>
+              <Button>تسجيل</Button>
+              </SignInButton>
             </SignedOut>
-            <SignedIn>
+
+            <SignInButton>
               <UserButton />
-            </SignedIn>
+            </SignInButton>
           </div>
         </div>
       </div>

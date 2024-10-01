@@ -20,10 +20,7 @@ export default function RegistrationSteps({name, step1, detail1, step2, detail2,
   return (
     <>
     <div className="flex flex-row justify-end md:justify-center items-center">
-      <Link href={linkTo} className='flex flex-row gap-2 justify-center items-center text-center'>
-        <ArrowLeft width={24} height={24}/>
     <h2 className="text-end md:text-center mr-2 text-2xl">{name}</h2>
-      </Link>
     <span className="text-zinc-300 mb-1.5  text-3xl font-light md:hidden">-</span>
     </div>
 

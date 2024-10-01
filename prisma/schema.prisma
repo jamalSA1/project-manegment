@@ -11,12 +11,28 @@ datasource db {
   directUrl = env("POSTGRES_URL_NON_POOLING") // uses a direct connection
 }
 
-model Post {
-  id        Int      @id @default(autoincrement())
-  name      String
-  content   String
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+model Admin {
+  id       BigInt   @id @default(autoincrement())
+  name     String
+  email    String   @unique
+  picture  String
+  projects Projects[]
+  managedCompanies Company[] @relation("Manager")
+}
 
-  @@index([name])
+model Projects {
+  id        BigInt  @id @default(autoincrement())
+  name      String
+  date      DateTime
+  userId    BigInt
+  admin      Admin    @relation(fields: [userId], references: [id])
+}
+
+model Company {
+  id          BigInt  @id @default(autoincrement())
+  name        String
+  logo        String?
+  companyCode String
+  managerId   BigInt
+  manager     Admin    @relation("Manager", fields: [managerId], references: [id])
 }

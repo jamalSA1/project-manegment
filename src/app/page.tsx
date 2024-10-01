@@ -35,7 +35,7 @@ export default async function Home() {
           يمكن لمدير المشروع بدء التسجيل واضافة فريق العمل
         </p>
 
-        <Link
+        {/* <Link
           className={buttonVariants({
             size: 'lg',
             className: 'mt-5',
@@ -44,7 +44,7 @@ export default async function Home() {
           target='_blank'>
           <ArrowLeft className='mr-2 h-5 w-5' />
           ابدأ{' '}
-        </Link>
+        </Link> */}
         </div>
 
         <LandingSection />
